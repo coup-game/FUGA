@@ -1,6 +1,11 @@
+import MainFrame from "./frames/MainFrame"
+
 const Main = () => {
   return (
-    <div>Main</div>
+    <div>Main
+      <MainFrame />
+      asasd
+    </div>
   )
 }
 
