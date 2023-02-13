@@ -4,8 +4,9 @@ const Main = () => {
   return (
     <div>Main
       <MainFrame />
-      asasd
+     const alskndakns  
     </div>
+    
   )
 }
 
