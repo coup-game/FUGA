@@ -1,0 +1,7 @@
+@import "../variable.module.scss";
+
+.login{
+    display: flex;
+    flex-direction: column;
+    background-color: $form-background-color;
+}

@@ -1,10 +1,9 @@
-import MainFrame from "./frames/MainFrame"
+import MainFrame from "./Frames/MainFrame"
 
 const Main = () => {
   return (
-    <div>Main
+    <div>
       <MainFrame />
-     const alskndakns  
     </div>
     
   )

@@ -1,0 +1,8 @@
+@import "../variable.module.scss";
+
+.header_frame{
+    position: relative;
+    display: flex;
+    background-color: $nav-background-color;
+    height: 10vh;
+}
