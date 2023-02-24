@@ -1,9 +1,11 @@
-import MainFrame from "./Frames/MainFrame"
+// import MainFrame from "./frames/MainFrame"
+import MemberJoin from "../../Logic/API/MemberJoin"
 
 const Main = () => {
   return (
     <div>
-      <MainFrame />
+     {/* <MainFrame /> */}
+    <MemberJoin/>
     </div>
     
   )
