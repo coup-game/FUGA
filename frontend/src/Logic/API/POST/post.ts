@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../../../env";
+// import { API_URL } from "../../../env";
 
 interface SignUp {
     name: string,
@@ -10,7 +10,7 @@ interface SignUp {
 export const register = ({name, fristPw, email}: SignUp) => {
     axios
     //backend로 전달 될 url
-  .post(`${API_URL}api/auth/local`, {
+  .post('http://localhost:1337/api/auth/local', {
     identifier: name,
     Password : fristPw,
     email : email,
@@ -46,7 +46,7 @@ export const post__makeRoom = async (_roomInfo: any) => {
         roundWord,
         currWord
       }
-      const res = await axios.post(`${API_URL}/makeRoom`, {
+      const res = await axios.post('http://localhost:1337/api/makeRoom', {
         ...roomInfo
       });
       return res;

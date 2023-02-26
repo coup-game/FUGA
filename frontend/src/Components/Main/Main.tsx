@@ -1,4 +1,4 @@
-import MainFrame from "./Frames/MainFrame"
+import MainFrame from "./frames/MainFrame"
 
 const Main = () => {
   return (
