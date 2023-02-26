@@ -1,5 +1,6 @@
 import styles from '../../../Styles/Reusable/_signin.module.scss';
 import { useState ,FormEvent } from 'react';
+import { get_signin } from '../../../Logic/API/GET/get';
 
 const Signin = () => {
   const [login, setLogin] = useState({ id: "", pw: "" });
@@ -33,7 +34,3 @@ const Signin = () => {
 };
 
 export default Signin;
-function get_signin(login: { id: string; pw: string; }) {
-  throw new Error('Function not implemented.');
-}
-
