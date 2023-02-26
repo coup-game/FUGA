@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { API_URL } from "../../../env";
+import { API_URL } from "../../../env";
 
 interface SignUp {
     name: string,
@@ -10,7 +10,7 @@ interface SignUp {
 export const register = ({name, fristPw, email}: SignUp) => {
     axios
     //backend로 전달 될 url
-  .post('http://localhost:1337/api/auth/local', {
+  .post({API_URL}, {
     identifier: name,
     Password : fristPw,
     email : email,
