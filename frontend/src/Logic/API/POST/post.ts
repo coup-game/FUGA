@@ -2,12 +2,25 @@ import axios from "axios";
 import { SignUp } from "../../../interface";
 // import { API_URL } from "../../../env";
 
+<<<<<<< HEAD
 
 
 export const register = ({name, pw, email}: SignUp) => {
     axios
     //backend로 전달 될 url
   .post('http://127.0.0.1:5173/api/auth/local', {
+=======
+interface SignUp {
+    name?: string,
+    pw: string,
+    email: string,
+}
+
+export const register = ({name, pw, email}: SignUp) => {
+    axios
+    //backend로 전달 될 url
+  .post(API_URL, {
+>>>>>>> e4cf262a2330a7d14d82562e5c96eb259ee87298
     identifier: name,
     Password : pw,
     email : email,
@@ -24,29 +37,3 @@ export const register = ({name, pw, email}: SignUp) => {
     console.log('An error occurred:', error.response);
   });
 }
-
-export const post__makeRoom = async (_roomInfo: any) => {
-    try {
-      const {roomId, title, mode, lang, rounds, time_limit: limitTime, maximum: maxEntry, pw, roundWord, currWord} = _roomInfo;
-      const roomInfo = {
-        number: roomId,
-        title,
-        lang,
-        mode,
-        rounds,
-        limitTime,
-        currEntry: 0,
-        maxEntry,
-        pw,
-        players: [],
-        roundWord,
-        currWord
-      }
-      const res = await axios.post('http://localhost:1337/api/makeRoom', {
-        ...roomInfo
-      });
-      return res;
-    } catch (e) {
-      console.error(e);
-    }
-  };

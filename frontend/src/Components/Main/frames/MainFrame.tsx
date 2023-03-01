@@ -1,4 +1,4 @@
-import MemberJoin from "../../Reusable/MemberJoin"
+import MemberJoin from "../../Reusable/Form/Memberjoin"
 import styles from "../../../Styles/Main/_main.module.scss"
 import Signin from "../../Reusable/Form/Signin"
 
