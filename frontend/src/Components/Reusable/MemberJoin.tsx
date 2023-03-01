@@ -1,99 +1,77 @@
-import React, { Component, ChangeEvent } from 'react';
+import React, { Component, ChangeEvent, FormEvent } from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../../Styles/Reusable/_memberjoin.module.scss';
 import { register } from '../../Logic/API/POST/post';
+import { member } from '../../interface';
 
-
-interface info {
-  id : string,
-  fristPw : string,
-  secondaryPw : string,
-  email : string,
-}
 
 const MemberJoin = () => {
 
-    const [info, setInfo] = useState({
+    const [member, setMember] = useState({
       id : "",
-      fristPw : "",
-      secondaryPw : "",
+      pw : "",
+      confirmPw : "",
       email : "",
   })
 
-    const {id, fristPw, secondaryPw, email} = info
+     const {id, pw, confirmPw, email} = member
+
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 
-    setInfo({...info, [e.target.name]:e.target.value})
-      //...arr = psread operator(배열이나 문자열 등을 요소 하나하나로 전개)
+    setMember({...member, [e.target.name]:e.target.value})
     }
-    const onSubmit = ({id, fristPw, secondaryPw, email}: info) => {
-      //비번과 비번확인이 서로 다를 경우 alert 발생
-      if (fristPw !== secondaryPw) {
-          alert('비밀번호가 일치하지 않습니다');
+
+    const comparePw = (pw: string, comparePw: string) => {
+      if(pw !== confirmPw){
+        alert("비밀번호가 일치하지 안습니다!")
+      }else{
+        console.log("비밀번호가 같습니다.")
       }
-        register(info);
-    
-  };
+    }
+
+    const onSubmit = (e : FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      comparePw(pw, confirmPw);
+      console.log(member)
+      register(member);
+    }
 
   return (
-    <div className={styles.login}>
-        회원가입
-      <div>
-        <label htmlFor="name">아이디</label>
-        <input 
-          name="id"
-          type="text"
-          value={id}
-          onChange = {(event)=>{setId(event.target.value)
-            console.log(event.target.value)}}
-          ></input>
-      </div>
-
-      <div>
-        <label htmlFor="pw">패스워드</label>
-        <input
-          name="fristPw"
-          type="text"
-          value={fristPw}
-          onChange = {(event)=>{setFristPw(event.target.value)
-          console.log(event.target.value)}}
-        ></input>
-      
-      </div>
-
-      <div>
-        <label htmlFor="pw">패스워드</label>
-        <input
-          name="secondaryPw"
-          type="text"
-          value={secondaryPw}
-          onChange = {(event)=>{setSecondaryPw(event.target.value)
-            console.log(event.target.value)}}
-        ></input>
-      </div>
-
-      <div>
-        <label htmlFor="email">이메일</label>
-        <input
-          name="email"
-          type="email"
-          value={email}
-          onChange = {(event)=>{setEmail(event.target.value)
-            console.log(event.target.value)}}
-        ></input>
-      </div>
-
-      <div>
-        <button
-          onClick={()=> {onSubmit}}
-        >
-          확인
-        </button>
-      </div>
+    <form className={styles.form} onSubmit={onSubmit}>
+    회원가입
+    <div>
+      <label htmlFor="name">아이디</label>
+      <input name="id" type="text" value={id} onChange={onChange}></input>
     </div>
-  );
+    <div>
+      <label htmlFor="pw">비밀번호</label>
+      <input name="pw" type="text" value={pw} onChange={onChange}></input>
+    </div>
+    <div>
+      <label htmlFor="pw">비밀번호 확인</label>
+      <input
+        name="confirmPw"
+        type="text"
+        value={confirmPw}
+        onChange={onChange}
+      ></input>
+    </div>
+    <div>
+      <label htmlFor="email">이메일</label>
+      <input
+        name="email"
+        type="email"
+        value={email}
+        onChange={onChange}
+      ></input>
+    </div>
+    <div>
+      <button>확인</button>
+    </div>
+  </form>
+);
 };
 
 

@@ -1,21 +1,17 @@
 import axios from "axios";
-import { API_URL } from "../../../env";
+import { SignUp } from "../../../interface";
+// import { API_URL } from "../../../env";
 
-interface SignUp {
-    name: string,
-    fristPw: string,
-    email: string,
-}
 
-export const register = ({name, fristPw, email}: SignUp) => {
+
+export const register = ({name, pw, email}: SignUp) => {
     axios
     //backend로 전달 될 url
-  .post({API_URL}, {
+  .post('http://127.0.0.1:5173/api/auth/local', {
     identifier: name,
-    Password : fristPw,
+    Password : pw,
     email : email,
-    
-
+  
   })
   .then(response => {
     // Handle success.
