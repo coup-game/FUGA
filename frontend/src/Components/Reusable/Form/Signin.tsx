@@ -1,6 +1,7 @@
 import styles from '../../../Styles/Reusable/_signin.module.scss';
 import { useState ,FormEvent } from 'react';
 import { get_signin } from '../../../Logic/API/GET/get';
+import NaverLogin from '../Oauth/NaverLogin';
 
 const Signin = () => {
   const [login, setLogin] = useState({ id: "", pw: "" });
@@ -25,7 +26,7 @@ const Signin = () => {
         <span>회원가입</span>
       </div>
       <div>
-        <div>SNS 로그인</div>
+        <NaverLogin />
         <div>SNS 로그인</div>
         <div>SNS 로그인</div>
       </div>

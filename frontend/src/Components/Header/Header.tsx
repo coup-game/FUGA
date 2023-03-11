@@ -11,7 +11,7 @@ const Header = () => {
       <div className={styles.header_notice}>
         <Icon path={mdiBullhornOutline} size={2} />
         <div className={styles.header_notice_content_wrapper}>
-          <div className={styles.header_notice_content}>패치 내역</div>
+          <div className={styles.header_notice_content}>2023/03/20 패치 내역</div>
         </div>
       </div>
     </div>
