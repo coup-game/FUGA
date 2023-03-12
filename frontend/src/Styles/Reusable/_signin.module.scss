@@ -1,8 +1,22 @@
 @import "../_variable.module.scss";
 
-.login{
-    display: flex;
-    flex-direction: column;
-    background-color: $form-background-color;
-    color: $main-background-color;
+.login {
+  display: flex;
+  flex-direction: column;
+  background-color: $form-background-color;
+  color: $main-background-color;
+}
+.login_title {
+  font-size: 3rem;
+}
+.login_form {
+}
+
+.google_login {
+  display: flex;
+  justify-content: center;
+}
+
+.google_login_wrapper {
+  width: fit-content;
 }

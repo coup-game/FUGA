@@ -1,4 +1,4 @@
-import { CLIENT_ID, API_URL } from "../../../env";
+import { NAVER_CLIENT_ID, API_URL } from "../../../env";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -7,10 +7,10 @@ const NaverLogin = (props: any) => {
 
   const initializeNaverLogin = () => {
     const naverLogin = new naver.LoginWithNaverId({
-      clientId: CLIENT_ID,
+      clientId: NAVER_CLIENT_ID,
       callbackUrl: API_URL,
-      isPopup: false,
-      loginButton: { color: "green", type: 3, height: "47" }, //버튼의 스타일, 타입, 크기를 지정
+      isPopup: true,
+      loginButton: { color: "green", type: 3, height: "42" },
     });
     naverLogin.init();
   };
